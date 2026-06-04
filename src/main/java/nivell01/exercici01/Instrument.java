@@ -18,7 +18,6 @@ public abstract class Instrument {
         System.out.println("Es crea un nou objecte");
     }
 
-
     // Constructor
     public Instrument(String name, double price){
         // Check input data
