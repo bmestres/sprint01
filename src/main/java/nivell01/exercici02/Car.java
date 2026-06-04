@@ -12,4 +12,13 @@ public class Car {
         // Initialize attributes
         this.power = power;
     }
+
+    // Implement method brake
+    public static void brake(){
+        System.out.println("El vehicle està frenat");
+    }
+
+    public void accelerate(){
+        System.out.println("El vehicle està accelerant");
+    }
 }
