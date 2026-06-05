@@ -2,8 +2,8 @@ package nivell02.exercici01;
 // Create superclass Phone
 public class Phone {
     // Define attributes
-    private static String brand;
-    private static String model;
+    private String brand;
+    private String model;
 
     // Constructor
     public Phone(String brand, String model){
@@ -41,7 +41,7 @@ public class Phone {
     }
 
     // Implement call method
-    public void makeCall(){
-        System.out.println("Fent una trucada");
+    public void makeCall(String number){
+        System.out.printf("Trucant a %s\n", number);
     }
 }

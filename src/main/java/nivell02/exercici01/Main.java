@@ -6,7 +6,6 @@ public class Main {
 
         Smartphone smartphone01 = new Smartphone("iPhone", "17");
 
-
-
+        smartphone01.makeCall("6557893");
     }
 }
