@@ -12,24 +12,18 @@ public class NoticiaF1 extends Noticia {
 
     // Constructor
     public NoticiaF1(String titular, String escuderia) {
-
         // Initialize superclass
         super(titular);
-
         // Check input data
         checkInputs(escuderia);
-
         // Initialize attributes
         this.escuderia = escuderia;
-
         // Set price and score by calling compute methods
         this.setPreu(this.computePrice());
         this.setPuntuacio(this.computeScore());
     }
-
     // Define checkInputs method
     private void checkInputs(String escuderia) {
-
         if (escuderia == null) {
             throw new IllegalArgumentException("Escuderia must not be NULL");
         }
@@ -39,7 +33,6 @@ public class NoticiaF1 extends Noticia {
         public double computePrice () {
             // Initialize accumulator
             double totalPreu = this.preuBase;
-
             // Update accumulator if player matches requirement
             if (this.escuderia.equalsIgnoreCase("Ferrari") ||
                     this.escuderia.equalsIgnoreCase("Mercedes")) {

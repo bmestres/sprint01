@@ -14,18 +14,14 @@ public class NoticiaFutbol extends Noticia {
 
     // Constructor
     public NoticiaFutbol(String titular, String competicio, String club, String jugador) {
-
         // Initialize superclass
         super(titular);
-
         // Check input data
         checkInputs(competicio, club, jugador);
-
         // Initialize attributes
         this.competicio = competicio;
         this.club = club;
         this.jugador = jugador;
-
         // Set price and score by calling compute methods
         this.setPreu(this.computePrice());
         this.setPuntuacio(this.computeScore());
@@ -33,7 +29,6 @@ public class NoticiaFutbol extends Noticia {
 
     // Define checkInputs method
     private void checkInputs(String competicio, String club, String jugador) {
-
         if (competicio == null) {
             throw new IllegalArgumentException("Competicio must not be NULL");
         }
@@ -49,7 +44,6 @@ public class NoticiaFutbol extends Noticia {
     public double computePrice(){
         // Initialize accumulator
         double totalPreu = this.preuBase;
-
         // Update accumulator if club matches requirement
         if(this.club.equalsIgnoreCase("Barça") || this.club.equalsIgnoreCase("Madrid")){
             totalPreu += 100;

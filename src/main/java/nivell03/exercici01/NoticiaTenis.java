@@ -15,17 +15,13 @@ public class NoticiaTenis extends Noticia{
 
     // Constructor
     public NoticiaTenis(String titular, String competicio, ArrayList<String>tenistes) {
-
         // Initialize superclass
         super(titular);
-
         // Check input data
         checkInputs(competicio, tenistes);
-
         // Initialize attributes
         this.competicio = competicio;
         this.tenistes = tenistes;
-
         // Set price and score by calling compute methods
         this.setPreu(this.computePrice());
         this.setPuntuacio(this.computeScore());
@@ -33,7 +29,6 @@ public class NoticiaTenis extends Noticia{
 
     // Define checkInputs method
     private void checkInputs(String competicio, ArrayList<String>tenistes) {
-
         if (competicio == null) {
             throw new IllegalArgumentException("Competicio must not be NULL");
         }
@@ -46,14 +41,11 @@ public class NoticiaTenis extends Noticia{
     public double computePrice(){
         // Initialize accumulator
         double totalPreu = this.preuBase;
-
         // Current list element
         String currentTennist;
-
         // Set index and flag
         boolean found = false;
         int i = 0;
-
         // Traverse players list and find special players
         while(i < this.tenistes.size() && !found) {
             currentTennist = this.tenistes.get(i);
@@ -75,14 +67,11 @@ public class NoticiaTenis extends Noticia{
     public int computeScore(){
         // Initialize accumulator
         int totalPuntuacio = puntuacioBase;
-
         // Current list element
         String currentTennist;
-
         // Set index and flag
         boolean found = false;
         int i = 0;
-
         // Traverse players list and find special players
         while(i < this.tenistes.size() && !found) {
             currentTennist = this.tenistes.get(i);
