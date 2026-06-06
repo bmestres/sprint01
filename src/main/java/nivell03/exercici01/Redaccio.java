@@ -12,4 +12,8 @@ public class Redaccio {
     public Redaccio(){
         this.redactors = new ArrayList<>();
     }
+    // Add editor
+    public void addEditor(Redactor redactor){
+        this.redactors.add(redactor);
+    }
 }
