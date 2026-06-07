@@ -45,15 +45,19 @@ Hi ha diferents tipus de *Notícia*, cadascun amb uns atributs particulars, a ba
 **Backend** Java
 
 **Instal·lació i Execució**
+
 1. Clonar el repositori: https://github.com/bmestres/sprint01.git
-2. Execució de l'aplicació:
+2. Rutes d'executables:
+
 **Nivell 1**
-- <ins>Ruta de l'executable exercici01: src/main/java/nivell01/exercici01/Main.java
-- <ins>Ruta de l'executable exercici02: src/main/java/nivell01/exercici02/Main.java
+- <ins>exercici01</ins>: src/main/java/nivell01/exercici01/Main.java
+- <ins>exercici02</ins>: src/main/java/nivell01/exercici02/Main.java
+
 **Nivell 2**
-- <ins>Ruta de l'executable exercici01: src/main/java/nivell02/exercici01/Main.java
+- <ins>exercici01</ins>: src/main/java/nivell02/exercici01/Main.java
+
 **Nivell 3**
-- <ins>Ruta de l'executable exercici01: src/main/java/nivell03/exercici01/Main.java
+- <ins>exercici01</ins>: src/main/java/nivell03/exercici01/Main.java
 
 
 
