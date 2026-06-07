@@ -72,7 +72,8 @@ public class Main {
 
                     if (userConf == 's') {
                         redaccio.getEditors().remove(pos);
-                        System.out.printf("=== Redactor amb NIF %s eliminat ===\n", nif);
+                        System.out.printf("=== Redactor amb NIF %s eliminat amb exit===\n", nif);
+                        System.out.println();
                     }
                     break;
                 }
@@ -98,11 +99,10 @@ public class Main {
                         } while(pos < 0);
 
                         redactor = redaccio.getEditors().get(pos);
-                        System.out.printf("Notícia assignada a %s:\n\n", redactor.getName());
+                        System.out.printf("=== Notícia assignada a %s ===\n\n", redactor.getName());
 
                         System.out.println("*===================================*");
                         System.out.println("*       SEL·LECCIONA EL TIPUS:      *");
-                        System.out.println("*                                   *");
                         System.out.println("*       Futbol:      (1)            *");
                         System.out.println("*       Basquet:     (2)            *");
                         System.out.println("*       Tenis:       (3)            *");
@@ -135,6 +135,8 @@ public class Main {
                             String jugador = input.nextLine();
 
                             noticia = new NoticiaFutbol(titularNoticia, competicio, club, jugador);
+                            System.out.println("=== Notícia introduïda amb exit ===");
+                            System.out.println();
 
                             break;
                         }
@@ -150,6 +152,8 @@ public class Main {
                             String club = input.nextLine();
 
                             noticia = new NoticiaBasquet(titularNoticia, competicio, club);
+                            System.out.println("=== Notícia introduïda amb exit ===");
+                            System.out.println();
                             break;
                         }
                         case NOTICIA_TENIS: {
@@ -178,6 +182,8 @@ public class Main {
                             } while(!scape);
 
                             noticia = new NoticiaTenis(titularNoticia, competicio, tenistes);
+                            System.out.println("=== Notícia introduïda amb exit ===");
+                            System.out.println();
                             break;
                         }
                         case NOTICIA_F1: {
@@ -190,6 +196,8 @@ public class Main {
                             String escuderia = input.nextLine();
 
                             noticia = new NoticiaF1(titularNoticia, escuderia);
+                            System.out.println("=== Notícia introduïda amb exit ===");
+                            System.out.println();
                             break;
                         }
                         case NOTICIA_MOTOCICLISME: {
@@ -202,10 +210,13 @@ public class Main {
                             String equip = input.nextLine();
 
                             noticia = new NoticiaMotociclisme(titularNoticia, equip);
+                            System.out.println("=== Notícia introduïda amb exit ===");
+                            System.out.println();
                             break;
                         }
                     }
                     redactor.addNewsPiece(noticia);
+                    break;
                 }
                 case 4: {
                     System.out.println("*===================================*");
@@ -219,7 +230,17 @@ public class Main {
                     System.out.printf(" -> Introdueix el titular:\n");
                     String titular = input.nextLine();
 
-                    redaccio.getEditors().get(pos).deleteNewsPiece(titular);
+                    System.out.println("Segur que vols elminar la notícia");
+                    System.out.println("Sí (s) / No (n)");
+
+                    char userConf = input.nextLine().charAt(0);
+
+                    if (userConf == 's') {
+                        redaccio.getEditors().get(pos).deleteNewsPiece(titular);
+                        System.out.println("=== Notícia eliminada amb exit ===");
+                        System.out.println();
+                    }
+                    break;
                 }
                 case 5: {
                     System.out.println("*===================================*");
@@ -231,6 +252,7 @@ public class Main {
 
                     int pos = redaccio.findEditorByNif(nif);
                     redaccio.getEditors().get(pos).showAllNews();
+                    break;
                 }
                 case 6: {
                     System.out.println("*=======================================*");
@@ -239,7 +261,8 @@ public class Main {
 
                     System.out.printf(" -> Introdueix el titular de la notícia:\n");
                     String titular = input.nextLine();
-                    System.out.printf("Puntuació: %d", redaccio.getNewsByHeader(titular).computeScore());
+                    System.out.printf("Puntuació: %d\n", redaccio.getNewsByHeader(titular).computeScore());
+                    break;
                 }
                 case 7: {
                     System.out.println("*=======================================*");
@@ -248,8 +271,8 @@ public class Main {
 
                     System.out.printf(" -> Introdueix el titular de la notícia:\n");
                     String titular = input.nextLine();
-                    System.out.printf("Preu: %d", redaccio.getNewsByHeader(titular).computePrice());
-
+                    System.out.printf("Preu: %d\n", redaccio.getNewsByHeader(titular).computePrice());
+                    break;
                 }
             }
         } while (userChoice != 8);

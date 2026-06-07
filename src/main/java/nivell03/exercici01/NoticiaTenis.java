@@ -52,13 +52,11 @@ public class NoticiaTenis extends Noticia{
             if(currentTennist.equalsIgnoreCase("Federer")
                     || currentTennist.equalsIgnoreCase("Nadal")
                     || currentTennist.equalsIgnoreCase("Djokovic")){
-                found = true;
-                i++;
-            }
-            // Update accumulator any of the requested players is found
-            if(found = true){
+                // Update accumulator any of the requested players is found
                 totalPreu += 150;
+                found = true;
             }
+            i++;
         }
         return totalPreu;
     }
@@ -94,7 +92,7 @@ public class NoticiaTenis extends Noticia{
         // CSV format players to String
         String formatedTennists = String.join(", ", this.tenistes);
 
-        return String.format("Titular: %s\nCompetició: %s\nTenistes: %s\nPuntuació: %d\nPreu: %f.1\nText: %s\n",
+        return String.format("Titular: %s\nCompetició: %s\nTenistes: %s\nPuntuació: %d\nPreu: %.1f\nText: %s\n",
                 this.getTitular(), this.competicio, formatedTennists, this.getPuntuacio(), this.getPreu(), this.getText());
     }
 }
