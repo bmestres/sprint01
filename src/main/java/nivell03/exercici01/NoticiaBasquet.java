@@ -39,10 +39,11 @@ public class NoticiaBasquet extends Noticia{
     public double computePrice(){
         // Initialize accumulator
         double totalPreu = this.preuBase;
-
+        // Update total price if club meets requirements
         if(this.club.equalsIgnoreCase("Barça") || this.club.equalsIgnoreCase("Madrid")){
             totalPreu += 75;
         }
+        // Update total price if competition meets requirements
         if(this.competicio.equalsIgnoreCase("Eurolliga")){
             totalPreu += 75;
         }

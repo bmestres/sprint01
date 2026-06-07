@@ -45,11 +45,9 @@ public class Redactor {
 
     // Return position of a news piece given its header. Return -1 if not found
     public int findNewsByHeader(String titular){
-
         // Declare variables
         boolean found;
         int i, pos;
-
         // Initialize variables
         i = 0;
         pos = -1;
@@ -64,7 +62,7 @@ public class Redactor {
         }
         return pos;
     }
-
+    // Find news piece with a given header. Return NULL if not found
     public Noticia getNewsByHeader(String titular){
         int pos = this.findNewsByHeader(titular);
         Noticia noticia = null;
@@ -75,7 +73,6 @@ public class Redactor {
     }
 
     public void deleteNewsPiece(String titular){
-
         int pos = this.findNewsByHeader(titular);
         if(pos == -1){
             System.out.println("=== Notícia no trobada ===");
@@ -90,7 +87,6 @@ public class Redactor {
             System.out.printf("%s", this.noticies.get(i).toString());
         }
     }
-
     @Override
     public String toString(){
         return String.format("Nom: %s\nNIF: %s\n", this.nom, this.nif);

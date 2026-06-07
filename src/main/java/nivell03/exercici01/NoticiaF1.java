@@ -45,7 +45,7 @@ public class NoticiaF1 extends Noticia {
         public int computeScore() {
             // Initialize accumulator
             int totalPuntuacio = puntuacioBase;
-
+            // Update accumulator if racing team meets requirements
             if (this.escuderia.equalsIgnoreCase("Ferrari") ||
                     this.escuderia.equalsIgnoreCase("Mercedes")) {
                 totalPuntuacio += 2;
