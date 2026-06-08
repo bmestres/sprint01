@@ -81,7 +81,7 @@ public class NoticiaTenis extends Noticia{
             }
             // Update accumulator any of the requested players is found
             if(found){
-                totalPuntuacio += 150;
+                totalPuntuacio += 3;
             }
         }
         return totalPuntuacio;
