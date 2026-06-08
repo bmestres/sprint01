@@ -34,6 +34,11 @@ public class Redactor {
         return this.nom;
     }
 
+    // Setters
+    public void setName(String nom){
+        this.nom = nom;
+    }
+
     // Add news piece
     public void addNewsPiece(Noticia noticia){
         this.noticies.add(noticia);
