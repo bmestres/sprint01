@@ -63,24 +63,14 @@ public class NoticiaTenis extends Noticia{
     // Define compute score method for NoticiaFutbol
     @Override
     public int computeScore(){
-        // Initialize accumulator
-        int totalPuntuacio = puntuacioBase;
-        // Current list element
         String currentTennist;
-        // Set index and flag
-        boolean found = false;
-        int i = 0;
+        int totalPuntuacio = puntuacioBase;
         // Traverse players list and find special players
-        while(i < this.tenistes.size() && !found) {
+        for(int i = 0; i < this.tenistes.size(); i++){
             currentTennist = this.tenistes.get(i);
             if(currentTennist.equalsIgnoreCase("Federer")
                     || currentTennist.equalsIgnoreCase("Nadal")
                     || currentTennist.equalsIgnoreCase("Djokovic")){
-                found = true;
-                i++;
-            }
-            // Update accumulator any of the requested players is found
-            if(found){
                 totalPuntuacio += 3;
             }
         }
