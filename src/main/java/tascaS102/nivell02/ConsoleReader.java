@@ -23,10 +23,11 @@ public class ConsoleReader {
             correctInput = true;
 
         } catch (InputMismatchException e) {
-            System.out.println(e.getMessage());
+            System.out.println(Message.EXCEPTION_FORMAT_ERROR);
             inputScanner.nextLine();
         }
         } while(!correctInput);
+        System.out.println(Message.E_SUCCESS);
         return formatedByte;
     }
 
@@ -44,11 +45,11 @@ public class ConsoleReader {
                 correctInput = true;
 
             } catch (InputMismatchException e) {
-                System.out.println(e.getMessage());
+                System.out.println(Message.EXCEPTION_FORMAT_ERROR);
                 inputScanner.nextLine();
             }
         }while(!correctInput);
-
+        System.out.println(Message.E_SUCCESS);
         return formatedInt;
     }
 
@@ -67,11 +68,12 @@ public class ConsoleReader {
                     correctInput = true;
 
                 } catch (InputMismatchException e) {
-                    System.out.println(e.getMessage());
+                    System.out.println(Message.EXCEPTION_FORMAT_ERROR);
                     inputScanner.nextLine();
                 }
             }while (!correctInput);
 
+        System.out.println(Message.E_SUCCESS);
         return formatedFloat;
     }
     // Prompts user to input a double and returns value
@@ -89,11 +91,11 @@ public class ConsoleReader {
                 correctInput = true;
 
             } catch(InputMismatchException e){
-                System.out.println(e.getMessage());
+                System.out.println(Message.EXCEPTION_FORMAT_ERROR);
                 inputScanner.nextLine();
             }
         }while(!correctInput);
-
+        System.out.println(Message.E_SUCCESS);
         return formatedDouble;
     }
 
@@ -116,7 +118,9 @@ public class ConsoleReader {
             } catch (MultipleCharacterException e) {
                 System.out.println(e.getMessage());
             }
-        } while (!correctInput) ;
+        } while (!correctInput);
+
+        System.out.println(Message.E_SUCCESS);
         return formatedChar;
     }
     // Prompts user to input a word and returns string
@@ -140,7 +144,9 @@ public class ConsoleReader {
                 System.out.println(e.getMessage());
             }
         }while(!correctInput);
-    return formatedString;
+
+        System.out.println(Message.E_SUCCESS);
+        return formatedString;
     }
     // Prompts user for a boolean and returns value
     public static boolean readYesNo(String message){
@@ -166,6 +172,7 @@ public class ConsoleReader {
             }
         }while (!correctInput);
 
+        System.out.println(Message.E_SUCCESS);
         return formatedBool;
     }
 }
