@@ -69,9 +69,9 @@ public class ConsoleUI {
 
             System.out.println(Message.U_RESERVATION_LIST);
             for (int i = 0; i < bookedSits.size(); i++) {
-                System.out.printf("*    %d)  %s                        *\n", i + 1, bookedSits.get(i));
+                System.out.printf("%d)\n%s\n", i + 1, bookedSits.get(i));
             }
-            System.out.println("*=================================*");
+            System.out.println("*=========================================*");
         } catch (EmptySeatListException e) {
             System.out.println(e.getMessage());
         }
@@ -84,9 +84,9 @@ public class ConsoleUI {
             List<Seat>sits = service.getSeatsByPerson(person);
 
             for(int i = 0; i < sits.size(); i++){
-                System.out.printf("*     %d)  %s                        *\n",i + 1, sits.get(i));
+                System.out.printf("%d)\n%s\n",i + 1, sits.get(i));
             }
-            System.out.println("*=================================*");
+            System.out.println("*=========================================*");
         } catch (PersonNotFoundException e) {
             System.out.println(e.getMessage());
         }

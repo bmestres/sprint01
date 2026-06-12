@@ -38,6 +38,7 @@ public class Message {
     public static final String E_INVALID_SIT_POSITION = "Invalid seat. Enter a valid seat.";
     public static final String E_STRING_WITH_NUMBERS = "Text must not include numbers.";
     public static final String E_SEAT_ALREADY_TAKEN = "The seat is already taken.";
+    public static final String E_SEAT_ALREADY_EMPTY = "The seat is empty";
     public static final String E_PERSON_NOT_FOUND = "Person not found.";
     public static final String E_EMPTY_SEAT_LIST = "No reservations found.";
     public static final String E_SUCCESS = "Success.";
