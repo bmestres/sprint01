@@ -8,7 +8,7 @@ public class ReservationService {
     // Attributes
     private int rows;
     private int sitsPerRaw;
-    ArrayList<Seat> theaterSeats;
+    private ArrayList<Seat> theaterSeats;
 
     // Reservation service constructor
     public ReservationService(int rows, int columns) {
@@ -19,6 +19,7 @@ public class ReservationService {
 
     // Reserve a new seat
     public void reserveSeat(int row, int seat, String name) {
+
         validateSeatPosition(row, seat);
         validateSeatAvailability(row, seat);
 
@@ -28,6 +29,9 @@ public class ReservationService {
 
     // Removes reservation given row and seat number
     public void cancelSit(int row, int seat) {
+
+        validateSeatPosition(row, seat);
+
         int i = 0;
         boolean deleted = false;
 
