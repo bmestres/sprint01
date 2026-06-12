@@ -1,10 +1,10 @@
 package tascaS102.nivell03;
 // Enum of menu options
 public enum MenuOption {
-    SHOW_ALL_BOOKED_SITS,
-    SHOW_SITS_PER_PERSON,
-    BOOK_SIT,
-    CANCEL_BOOKING,
-    CANCEL_ALL_PERSON_BOOKING,
-    EXIT
+    M_SHOW_ALL_BOOKED_SITS,
+    M_SHOW_SITS_PER_PERSON,
+    M_BOOK_SIT,
+    M_CANCEL_BOOKING,
+    M_CANCEL_ALL_USER_BOOKING,
+    M_EXIT
 }

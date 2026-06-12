@@ -9,5 +9,11 @@ public class Main {
         int numRows = ConsoleReader.readInt(Message.U_ENTER_RAWS);
         int numSitsPerRow = ConsoleReader.readInt(Message.U_ENTER_SITS_PER_RAW);
 
+        ReservationService service = new ReservationService(numRows, numSitsPerRow);
+
+        ConsoleUI console = new ConsoleUI(service);
+
+        console.start();
+
     }
 }

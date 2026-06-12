@@ -17,37 +17,68 @@ public class ConsoleUI {
     // Read integer
     private int readInt(String message){
         int formatedInt = 0;
-        boolean correctFormat = false;
+
 
         try{
             formatedInt = scannerInput.nextInt();
             scannerInput.nextLine();
-            correctFormat = true;
+
         }catch(InputMismatchException e){
-            System.out.println(Message.E_FORMAT_ERROR);
+            System.out.println(e.getMessage());
         }
         return formatedInt;
     }
 
     public void start(){
-
-        int userSel = 0;
-        boolean correctEntry = false;
+        boolean exit = false;
 
         do{
             System.out.println(Message.U_MENU_DISPLAY);
 
-        }while(!correctEntry);
+            try {
+                int userSel = ConsoleReader.readInt(Message.U_OPTION_SELECTION);
+
+                if (userSel < 0 || userSel > 5) {
+                    throw new OutOfRangeValueException();
+                }
+
+                MenuOption menuSel = MenuOption.values()[userSel - 1];
+
+                switch (menuSel) {
+                    case M_SHOW_ALL_BOOKED_SITS: {
+                        showBookedSits();
+                    }
+
+                }
+            }catch(OutOfRangeValueException e){
+                    System.out.println(e.getMessage());
+                }
+
+
+        }while(!exit);
     }
 
-    public void displayMenu(){
-        System.out.println("*=======================================*");
-        System.out.println("*             OPTION MENU               *");
-        System.out.println("*     1) Show all booked sits           *");
-        System.out.println("*     2) Show all sits per person       *");
-        System.out.println("*     3) Book a sit                     *");
-        System.out.println("*     4) Cancel booking of sit          *");
-        System.out.println("*     5) Cancel all person's bookings   *");
-        System.out.println("*=======================================*");
+    // Display data methods
+    private void showBookedSits(){
+
     }
+
+    private void showSitsPerPerson(){
+
+    }
+
+    private void promptBookSeat(){
+
+    }
+
+    private void promptCancelSeat(){
+
+    }
+
+    private void cancelAllByPerson(){
+
+    }
+
+
+
 }
