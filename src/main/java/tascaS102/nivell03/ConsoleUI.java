@@ -7,24 +7,23 @@ import java.util.Scanner;
 
 public class ConsoleUI {
 
-    private static Scanner scannerInput = new Scanner(System.in);
-
     // Attributes
     private ReservationService service;
+
     // Constructor
-    public ConsoleUI(ReservationService service){
+    public ConsoleUI(ReservationService service) {
         this.service = service;
     }
 
-    public void start(){
+    public void start() {
         boolean exit = false;
 
-        do{
+        do {
             System.out.println(Message.U_MENU_DISPLAY);
             try {
                 int userSel = ConsoleReader.readInt(Message.U_OPTION_SELECTION);
 
-                if (userSel < 0 || userSel > 5) {
+                if (userSel < 1 || userSel > 6) {
                     throw new OutOfRangeValueException();
                 }
                 MenuOption menuSel = MenuOption.values()[userSel - 1];
@@ -32,68 +31,102 @@ public class ConsoleUI {
                 switch (menuSel) {
                     case M_SHOW_ALL_BOOKED_SITS: {
                         showBookedSits();
-
                         break;
                     }
                     case M_SHOW_SITS_PER_PERSON: {
-
+                        showSeatsPerPerson();
                         break;
                     }
                     case M_BOOK_SIT: {
-
+                        promptReserveSeat();
+                        break;
                     }
                     case M_CANCEL_BOOKING: {
+                        promptCancelSeat();
 
                         break;
                     }
                     case M_CANCEL_ALL_USER_BOOKING: {
-
+                        promptCancelAllByPerson();
                         break;
                     }
                     case M_EXIT: {
+                        System.out.printf(Message.U_GOODBYE);
                         exit = true;
                         break;
                     }
                 }
-            }catch(OutOfRangeValueException e){
-                    System.out.println(e.getMessage());
-                }
-        } while(!exit);
+            } catch (OutOfRangeValueException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (!exit);
     }
 
     // Display data methods
-    private void showBookedSits(){
-
-        try{
-            List<Seat>bookedSits = service.getAllSeats();
+    private void showBookedSits() {
+        try {
+            List<Seat> bookedSits = service.getAllSeats();
 
             System.out.println(Message.U_RESERVATION_LIST);
-            for(int i = 0; i < bookedSits.size();i++){
+            for (int i = 0; i < bookedSits.size(); i++) {
                 System.out.printf("*    %d)  %s                        *\n", i + 1, bookedSits.get(i));
             }
-        }catch(EmptySeatListException e){
+            System.out.println("*=================================*");
+        } catch (EmptySeatListException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    private void showSitsPerPerson(){
+    private void showSeatsPerPerson() {
 
-        // String personName = ConsoleReader.
+        String person = ConsoleReader.readString(Message.U_ENTER_PERSON);
+        try {
+            List<Seat>sits = service.getSeatsByPerson(person);
 
+            for(int i = 0; i < sits.size(); i++){
+                System.out.printf("*     %d)  %s                        *\n",i + 1, sits.get(i));
+            }
+            System.out.println("*=================================*");
+        } catch (PersonNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    private void promptBookSeat(){
+    private void promptReserveSeat() {
 
+        int row = ConsoleReader.readInt(Message.U_ENTER_ROW);
+        int col = ConsoleReader.readInt(Message.U_ENTER_SEAT_NUMBER);
+        String person = ConsoleReader.readString(Message.U_ENTER_PERSON);
+
+        try {
+            service.reserveSeat(row, col, person);
+            System.out.println(Message.E_SUCCESS);
+        } catch (InvalidSeatPositionException | SeatAlreadyTakenException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    private void promptCancelSeat(){
+    private void promptCancelSeat() {
 
+        int row = ConsoleReader.readInt(Message.U_ENTER_ROW);
+        int col = ConsoleReader.readInt(Message.U_ENTER_SEAT_NUMBER);
+
+        try {
+            service.cancelSit(row, col);
+            System.out.println(Message.E_SUCCESS);
+        } catch (SeatAlreadyEmptyException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    private void cancelAllByPerson(){
+    private void promptCancelAllByPerson() {
+        String person = ConsoleReader.readString(Message.U_ENTER_PERSON);
 
+        try {
+            service.cancelAllByPerson(person);
+            System.out.println(Message.E_SUCCESS);
+        } catch (SeatAlreadyEmptyException e) {
+            System.out.println(e.getMessage());
+        }
     }
-
-
-
 }

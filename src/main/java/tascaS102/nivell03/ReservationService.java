@@ -89,7 +89,7 @@ public class ReservationService {
         return seatsByPerson;
     }
 
-    // Auxiliary methods
+    // Auxiliary validation methods
     private void validateSeatPosition(int row, int seat) {
         if (row < 1 || row > this.rows || seat < 1 || seat > this.sitsPerRaw) {
             throw new InvalidSeatPositionException();
