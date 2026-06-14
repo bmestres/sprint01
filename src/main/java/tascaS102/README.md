@@ -19,10 +19,26 @@ that it's not being checked by the compiler in runtime.
 
 ### Exercise 1 - Secure keyboard read
 
-This program implements a *ConsoleReader* class that prompts user to input a variaty of data types and returns them after making sure the format is correct.
+This program implements a *ConsoleReader* class that prompts user to input a variety of data types and returns them after making sure the format is correct.
 It does that through predefined exception *InputMismatchException* and three custom exceptions *MultipleCharacterException*, *ShortStringException* and *YesNoException*.
 
 ## Level 3
 
 ### Exercise 1 - 
 
+**Description:** This program manages reservations for a cinema room. Gives user a set of options including reserve a seat, cancel one or all reservations of a given person,
+as well as displaying individual reservations or general reservations.
+
+**Functionalities**:
+- **I/O:** Interactive options menu with robust input validation.
+- **Reservation service:** Methods for creation and removal of reservations.
+- **Data visualization:** Methods for displaying of reservations information.
+
+**Technologies**:
+*Backend* Java
+
+**Installation and Execution**
+
+1. Clone repository: https://github.com/bmestres/tasca01s1.git
+
+2. Executable paths:

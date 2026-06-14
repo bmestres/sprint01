@@ -42,14 +42,15 @@ There a different types of *Noticia*, each of which have its own particular attr
 - **Editors manager:** Methods for creation and removal of editors.
 - **Mews manager:** Methods for creation of news.
 - **Data treatment:** Compute of price and score of news according the type and attributes.
-- ** Visualizing data:** Method to display all news of a given editor.
+- **Visualizing data:** Method to display all news of a given editor.
 
 **Technologies**:
 **Backend** Java
 
-**Instalation and Execution**
+**Installation and Execution**
 
 1. Clone repository: https://github.com/bmestres/tasca01s1.git
+
 2. Executable paths:
 
 **Level 1**
