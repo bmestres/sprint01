@@ -1,4 +1,6 @@
-package tascaS102.nivell03;
+package tascaS102.nivell03.exceptions;
+
+import tascaS102.nivell03.Message;
 
 public class SeatAlreadyEmptyException extends RuntimeException{
     public SeatAlreadyEmptyException(){

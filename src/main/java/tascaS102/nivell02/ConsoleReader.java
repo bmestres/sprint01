@@ -1,5 +1,9 @@
 package tascaS102.nivell02;
 
+import tascaS102.nivell02.exceptions.MultipleCharacterException;
+import tascaS102.nivell02.exceptions.ShortStringException;
+import tascaS102.nivell02.exceptions.YesNoException;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

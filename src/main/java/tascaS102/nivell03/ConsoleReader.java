@@ -1,5 +1,8 @@
 package tascaS102.nivell03;
 
+import tascaS102.nivell03.exceptions.NegativeValueException;
+import tascaS102.nivell03.exceptions.StringWithNumbersException;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

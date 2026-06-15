@@ -1,4 +1,6 @@
-package tascaS102.nivell02;
+package tascaS102.nivell02.exceptions;
+
+import tascaS102.nivell02.Message;
 
 public class MultipleCharacterException extends Exception {
     public MultipleCharacterException(){

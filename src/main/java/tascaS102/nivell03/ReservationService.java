@@ -1,5 +1,7 @@
 package tascaS102.nivell03;
 
+import tascaS102.nivell03.exceptions.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
