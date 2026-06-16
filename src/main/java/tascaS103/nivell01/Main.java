@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Main {
     /*
     Creates an initial ArrayList adding all months except august and shows them on screen.
-    Then adds audust at its correct index and shows new result.
+    Then adds august at its correct index and shows new result.
      */
     public static void main(String[] args) {
         ArrayList<Month>monthsList = new ArrayList<Month>();

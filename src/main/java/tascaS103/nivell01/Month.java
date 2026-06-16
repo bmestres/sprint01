@@ -7,7 +7,6 @@ public class Month {
 
     // Constructor
     public Month(String name) {
-
         this.name = name;
     }
     // Setters
