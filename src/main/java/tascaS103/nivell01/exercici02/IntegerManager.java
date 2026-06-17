@@ -46,5 +46,6 @@ public class IntegerManager {
         System.out.println(message);
         System.out.print(this.list);
         System.out.println();
+        System.out.println();
     }
 }
