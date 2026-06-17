@@ -29,7 +29,11 @@ public class IntegerManager {
             this.list.add(numbers[i]);
         }
     }
-
+    /*
+    According to requirement, the method reads the elements of the source list
+    and adds them in the current list. In case override is the goal, a .clear()
+    method can be called from the current list beforehand
+     */
     public void iterateAndCopy(List<Integer> src){
         ListIterator<Integer> intIterator = src.listIterator();
         while(intIterator.hasNext()){
