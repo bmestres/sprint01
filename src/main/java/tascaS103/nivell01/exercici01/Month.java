@@ -1,4 +1,4 @@
-package tascaS103.nivell01;
+package tascaS103.nivell01.exercici01;
 
 public class Month {
 

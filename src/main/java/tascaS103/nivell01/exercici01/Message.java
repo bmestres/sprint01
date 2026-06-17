@@ -1,4 +1,4 @@
-package tascaS103.nivell01;
+package tascaS103.nivell01.exercici01;
 
 public class Message {
     public static final String U_FIRST_LIST = "Array list with 11 months:";
