@@ -10,38 +10,39 @@ public class IntegerManager {
     private List<Integer> list;
 
 
-    public IntegerManager(){
+    public IntegerManager() {
         this.list = new ArrayList<>();
     }
 
-    public ArrayList<Integer> getList(){
+    public ArrayList<Integer> getList() {
         return new ArrayList<Integer>(this.list);
     }
 
-    public void fillList(){
-        for(int i = 0; i < this.numbers.length; i++){
+    public void fillList() {
+        for (int i = 0; i < this.numbers.length; i++) {
             this.list.add(numbers[i]);
         }
     }
 
-    public void fillListReverse(){
-        for (int i = this.numbers.length - 1; i >= 0; i--){
+    public void fillListReverse() {
+        for (int i = this.numbers.length - 1; i >= 0; i--) {
             this.list.add(numbers[i]);
         }
     }
+
     /*
     According to requirement, the method reads the elements of the source list
     and adds them in the current list. In case override is the goal, a .clear()
     method can be called from the current list beforehand
      */
-    public void iterateAndCopy(List<Integer> src){
+    public void iterateAndCopy(List<Integer> src) {
         ListIterator<Integer> intIterator = src.listIterator();
-        while(intIterator.hasNext()){
+        while (intIterator.hasNext()) {
             this.list.add(intIterator.next());
         }
     }
 
-    public void printList(String message){
+    public void printList(String message) {
         System.out.println(message);
         System.out.print(this.list);
         System.out.println();
