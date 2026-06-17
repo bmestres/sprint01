@@ -12,6 +12,7 @@ public class Main {
         MonthManager manager = new MonthManager();
 
         manager.fillWithMonthsNoAug();
+        // Print list to verify order is correct
         manager.printList(Message.U_FIRST_LIST);
 
         Month august = new Month("August");
