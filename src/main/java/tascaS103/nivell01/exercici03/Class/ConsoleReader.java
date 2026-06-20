@@ -1,7 +1,5 @@
-package tascaS103.nivell01.exercici03;
+package tascaS103.nivell01.exercici03.Class;
 
-
-import tascaS103.nivell01.exercici03.Class.Message;
 import tascaS103.nivell01.exercici03.Exception.StringWithNumbersException;
 
 import java.util.InputMismatchException;
@@ -32,7 +30,6 @@ public class ConsoleReader {
     }
 
     public static String readString(String message) {
-
         String formatedString = "";
         boolean correctInput = false;
 
@@ -53,5 +50,4 @@ public class ConsoleReader {
         } while (!correctInput);
         return formatedString;
     }
-
 }

@@ -1,28 +1,31 @@
 package tascaS103.nivell01.exercici03.Class;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
+import java.util.Map;
 
 public class FileManager {
 
     private String fileText;
-    HashMap<String, String> cityCapitals;
+    Map<String, String> map;
 
     public FileManager(){
         this.fileText = "";
-        this.cityCapitals = new HashMap<String, String>();
+        this.map = new HashMap<String, String>();
     }
 
-    public String getFile(){
-      return this.fileText;
+    public HashMap<String, String> getCityCapitals(){
+        return new HashMap<String, String>(this.map);
     }
 
     public void cityCapitalsInit(String fileName){
         readFile(fileName);
         splitFile();
+    }
+
+    public String saveGame(String outcome, String fileName){
+        writeFile(outcome, fileName);
+        return String.format("SAVED SUCCESSFULLY");
     }
 
     private void readFile(String fileName){
@@ -47,17 +50,18 @@ public class FileManager {
 
         for(int i = 0; i < lines.length; i++){
             String[] parts = lines[i].split(" ");
-            this.cityCapitals.put(parts[0], parts[1]);
+            this.map.put(parts[0], parts[1]);
         }
     }
 
-    public void printCSVFile(){
-        System.out.println(this.fileText);
-        System.out.println();
-    }
+    public void writeFile(String fileName, String content){
+            try{
+                BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+                writer.write(fileName);
+                writer.close();
 
-    public void printCityCapital(){
-        System.out.println(this.cityCapitals);
-        System.out.println();
+            } catch (IOException e) {
+                System.out.println(Message.E_IO_EXCEPTION);
+            }
     }
 }
