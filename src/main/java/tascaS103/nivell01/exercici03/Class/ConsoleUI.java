@@ -30,13 +30,12 @@ public class ConsoleUI {
     }
 
     public void displayScore(int score){
-        System.out.printf("%d", score);
+        System.out.printf(Message.U_SCORE, score);
     }
 
     public void displayFinal(int score){
         System.out.println();
-        System.out.printf(Message.U_FINAL);
-        displayScore(score);
+        System.out.printf(Message.U_FINAL, score);
     }
 
     public boolean promptQuit(){

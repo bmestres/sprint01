@@ -1,0 +1,2 @@
+Player: Bernat
+Score: 5

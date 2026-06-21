@@ -30,5 +30,4 @@ public class Message {
     public static final String E_FORMAT_ERROR = "Wrong format";
     public static final String E_STRING_WITH_NUM = "Words must not include numbers";
     public static final String E_IO_EXCEPTION = "Error writing file";
-
 }
