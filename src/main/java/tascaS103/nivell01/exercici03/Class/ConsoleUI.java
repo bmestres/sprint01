@@ -1,43 +1,10 @@
 package tascaS103.nivell01.exercici03.Class;
 
-import java.util.ArrayList;
-
-import static tascaS103.nivell01.exercici03.Class.GameControl.MAX_QUESTIONS;
+import static tascaS103.nivell01.exercici03.Class.Game.MAX_QUESTIONS;
 
 public class ConsoleUI {
 
-    private final GameControl game;
-
-    public ConsoleUI(GameControl game){
-        this.game = game;
-    }
-
-    public String start(){
-        boolean exit = false;
-        do{
-            this.game.setPlayerName(askUserName());
-            this.game.prepareGame();
-
-            while(game.thereAreMoreQuestionsLeft()){
-                String userAnswer = askQuestion();
-
-                displayQuestionOutcome(userAnswer);
-                if(game.getRounds() != MAX_QUESTIONS){
-                    displayScore();
-                }
-            }
-
-            displayFinal();
-            String userChoice = promptQuit();
-
-
-
-        } while (!exit);
-
-        return game.toString();
-    }
-
-    private String askUserName(){
+    public String askUserName(){
         System.out.println(Message.U_WELCOME);
         String userName = ConsoleReader.readString(Message.U_ENTER_NAME);
         System.out.printf(Message.U_HELLO_NAME, userName.toUpperCase());
@@ -46,33 +13,39 @@ public class ConsoleUI {
         return userName;
     }
 
-    private String askQuestion(){
-        System.out.printf(Message.U_COUNTRY_NUMBERS, game.getRounds() + 1);
-        System.out.printf("%s", game.nextQuestion());
+    public String askQuestion(int round, String question){
+        System.out.printf(Message.U_COUNTRY_NUMBERS, round);
+        System.out.printf("%s", question);
         String userAnswer = ConsoleReader.readString("");
         return userAnswer;
     }
 
-    private void displayQuestionOutcome(String userAnswer){
-        if(game.processAnswer(userAnswer)){
+    public void displayOutcome(boolean isCorrect, int score){
+        if(isCorrect){
             System.out.println(Message.U_CORRECT);
         } else {
             System.out.println(Message.U_INCORRECT);
         }
-
+        displayScore();
     }
-    private void displayScore(){
-        System.out.printf(Message.U_SCORE, this.game.getScore());
+
+    public void displayScore(int score){
+        System.out.printf("%d", score);
+    }
+
+    public void displayFinal(int score){
         System.out.println();
+        System.out.printf(Message.U_FINAL);
+        displayScore(score);
     }
 
-    private void displayFinal(){
-        System.out.println();
-        System.out.printf(Message.U_FINAL, game.getScore());
-    }
-
-    private String promptQuit(){
+    public boolean promptQuit(){
         String userChoice = ConsoleReader.readString(Message.U_EXIT_PROMPT);
-        return userChoice;
+        boolean quit = false;
+
+        if(userChoice.equalsIgnoreCase("q")){
+            quit = true;
+        }
+        return quit;
     }
 }

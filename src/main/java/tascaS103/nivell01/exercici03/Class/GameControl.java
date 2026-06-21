@@ -1,81 +1,34 @@
 package tascaS103.nivell01.exercici03.Class;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.util.*;
-
+/* Links and manages the three main classes; state of game, user interface and read/write
+* to memory */
 public class GameControl {
 
-    private static final int INITIAL_STATE = 0;
-    public static final int MAX_QUESTIONS = 10;
-    private FileManager manager;
-    private final Map<String, String> cityCapitals;
-    private List<String> countryQuestions;
-    private String currQuestion;
-    private String playerName;
-    private int rounds;
-    private int score;
+    private final Game game;
+    private final ConsoleUI ui;
+    private final FileManager manager;
 
-
-    public GameControl(Map<String, String> cityCapitals) {
-        this.cityCapitals = cityCapitals;
-        this.rounds = INITIAL_STATE;
-        this.score = INITIAL_STATE;
-        this.currQuestion = "";
+    public GameControl(Game game, ConsoleUI ui, FileManager manager){
+        this.game = game;
+        this.ui = ui;
+        this.manager = manager;
     }
 
-    public ArrayList<String>getCountryQuestions(){
-        return new ArrayList<String>(this.countryQuestions);
-    }
+    public void play(){
+        boolean exit = false;
+        while(!exit){
+            String userName = ui.askUserName();
+            game.init(userName);
 
-    public int getScore(){
-        return this.score;
-    }
-
-    public int getRounds(){
-        return this.rounds;
-    }
-
-    public void setPlayerName(String name){
-        this.playerName = name;
-    }
-
-    public String getPlayerName(){
-        return this.playerName;
-    }
-
-    // All country names are stored and shuffled randomly
-    public void prepareGame(){
-        this.countryQuestions = new ArrayList<>(this.cityCapitals.keySet());
-        Collections.shuffle(this.countryQuestions);
-    }
-
-    public boolean thereAreMoreQuestionsLeft(){
-        return this.rounds < MAX_QUESTIONS;
-    }
-
-    public String nextQuestion(){
-        this.currQuestion = this.countryQuestions.get(this.rounds);
-        this.rounds++;
-        return currQuestion;
-    }
-
-    public boolean processAnswer(String userAnswer){
-        String correctAnswer = this.cityCapitals.get(this.currQuestion);
-        if(userAnswer.equalsIgnoreCase(correctAnswer)){
-            this.score++;
-            return true;
-        } else {
-            return false;
+            while(game.thereAreMoreQuestionsLeft()){
+                String country = game.nextQuestion();
+                String answer = ui.askQuestion(game.getRounds(), country);
+                boolean isCorrect = game.processAnswer(answer);
+                ui.displayOutcome(isCorrect, game.getScore());
+            }
+            ui.displayFinal(game.getScore());
+            manager.saveGame(game.toString(), "scores.txt");
+            exit = ui.promptQuit();
         }
     }
-
-
-    @Override
-    public String toString() {
-        return String.format("Player: %s\nScore: %d", this.playerName, this.score);
-    }
-    }
-
-
-
+}

@@ -11,11 +11,11 @@ public class FileManager {
 
     public FileManager(){
         this.fileText = "";
-        this.map = new HashMap<String, String>();
+        this.map = new HashMap<>();
     }
 
     public HashMap<String, String> getCityCapitals(){
-        return new HashMap<String, String>(this.map);
+        return new HashMap<>(this.map);
     }
 
     public void cityCapitalsInit(String fileName){
@@ -23,9 +23,8 @@ public class FileManager {
         splitFile();
     }
 
-    public String saveGame(String outcome, String fileName){
+    public void saveGame(String outcome, String fileName){
         writeFile(outcome, fileName);
-        return String.format("SAVED SUCCESSFULLY");
     }
 
     private void readFile(String fileName){
@@ -54,12 +53,11 @@ public class FileManager {
         }
     }
 
-    public void writeFile(String fileName, String content){
+    private void writeFile(String fileName, String content){
             try{
                 BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
                 writer.write(fileName);
                 writer.close();
-
             } catch (IOException e) {
                 System.out.println(Message.E_IO_EXCEPTION);
             }

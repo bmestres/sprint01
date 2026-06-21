@@ -19,6 +19,7 @@ public class Message {
             *                  %d                   *
             *=======================================*
             """;
+    public static final String U_GAME_SAVE = "GAME SAVED SUCCESSFULLY";
     public static final String U_EXIT_PROMPT = """
          Play (p)       Quit (q)
 *=======================================*
