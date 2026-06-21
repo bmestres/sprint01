@@ -53,10 +53,11 @@ public class FileManager {
         }
     }
 
-    private void writeFile(String fileName, String content){
+    private void writeFile(String content, String fileName){
             try{
                 BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
-                writer.write(fileName);
+                writer.write(content);
+                writer.newLine();
                 writer.close();
             } catch (IOException e) {
                 System.out.println(Message.E_IO_EXCEPTION);

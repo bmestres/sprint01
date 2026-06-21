@@ -6,7 +6,6 @@ import java.util.*;
 public class Game {
     private static final int INITIAL_STATE = 0;
     public static final int MAX_QUESTIONS = 10;
-    private FileManager manager;
     private final Map<String, String> cityCapitals;
     private List<String> countryQuestions;
     private String currQuestion;
@@ -21,10 +20,6 @@ public class Game {
         this.currQuestion = "";
     }
 
-    public ArrayList<String>getCountryQuestions(){
-        return new ArrayList<String>(this.countryQuestions);
-    }
-
     public int getScore(){
         return this.score;
     }
@@ -33,24 +28,11 @@ public class Game {
         return this.rounds;
     }
 
-    public void setPlayerName(String name){
-        this.playerName = name;
-    }
-
-    public String getPlayerName(){
-        return this.playerName;
-    }
-
+    // All country names are stored and shuffled randomly
     public void init(String playerName){
         this.playerName = playerName;
         this.rounds = INITIAL_STATE;
         this.score = INITIAL_STATE;
-        this.countryQuestions = new ArrayList<>(this.cityCapitals.keySet());
-        Collections.shuffle(this.countryQuestions);
-    }
-
-    // All country names are stored and shuffled randomly
-    public void prepareGame(){
         this.countryQuestions = new ArrayList<>(this.cityCapitals.keySet());
         Collections.shuffle(this.countryQuestions);
     }
@@ -75,12 +57,11 @@ public class Game {
         }
     }
 
-
     @Override
     public String toString() {
         return String.format("Player: %s\nScore: %d", this.playerName, this.score);
     }
-    }
+}
 
 
 

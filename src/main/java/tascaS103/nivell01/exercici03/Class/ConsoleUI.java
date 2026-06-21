@@ -26,7 +26,7 @@ public class ConsoleUI {
         } else {
             System.out.println(Message.U_INCORRECT);
         }
-        displayScore();
+        displayScore(score);
     }
 
     public void displayScore(int score){
