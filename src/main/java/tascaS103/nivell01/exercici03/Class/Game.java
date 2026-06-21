@@ -18,6 +18,7 @@ public class Game {
         this.rounds = INITIAL_STATE;
         this.score = INITIAL_STATE;
         this.currQuestion = "";
+        this.playerName = "";
     }
 
     public int getScore(){

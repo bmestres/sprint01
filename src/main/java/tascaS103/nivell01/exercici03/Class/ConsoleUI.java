@@ -6,8 +6,8 @@ public class ConsoleUI {
 
     public String askUserName(){
         System.out.println(Message.U_WELCOME);
-        String userName = ConsoleReader.readString(Message.U_ENTER_NAME);
-        System.out.printf(Message.U_HELLO_NAME, userName.toUpperCase());
+        String userName = ConsoleReader.readString(Message.U_ENTER_NAME).toUpperCase();
+        System.out.printf(Message.U_HELLO_NAME, userName);
         System.out.println();
         System.out.println(Message.U_GUESS_CAPITAL);
         return userName;
@@ -43,6 +43,7 @@ public class ConsoleUI {
         boolean quit = false;
 
         if(userChoice.equalsIgnoreCase("q")){
+            System.out.println(Message.U_GOODBYE);
             quit = true;
         }
         return quit;

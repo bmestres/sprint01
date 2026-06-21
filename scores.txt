@@ -1,2 +1,6 @@
 Player: Bernat
 Score: 5
+Player: bernat
+Score: 3
+Player: BERNAT
+Score: 7
