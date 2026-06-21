@@ -10,9 +10,11 @@ public class Main {
     public static void gameInit(){
         FileManager manager = new FileManager();
         manager.cityCapitalsInit("countries.txt");
+
         Game game = new Game(manager.getCityCapitals());
-        ConsoleUI consoleUI = new ConsoleUI(game);
-        String outcome = consoleUI.start();
-        manager.saveGame(outcome, "scores.txt");
+        ConsoleUI ui = new ConsoleUI();
+        GameControl control = new GameControl(game, ui, manager);
+
+        control.play();
     }
 }
