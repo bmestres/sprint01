@@ -2,13 +2,13 @@ package tascaS103.nivell01.exercici03.Class;
 
 /* Links and manages the three main classes; state of game, user interface and read/write
 * to memory */
-public class GameControl {
+public class GameManager {
 
     private final Game game;
     private final ConsoleUI ui;
     private final FileManager manager;
 
-    public GameControl(Game game, ConsoleUI ui, FileManager manager){
+    public GameManager(Game game, ConsoleUI ui, FileManager manager){
         this.game = game;
         this.ui = ui;
         this.manager = manager;

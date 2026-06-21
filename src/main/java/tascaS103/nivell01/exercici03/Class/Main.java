@@ -15,7 +15,7 @@ public class Main {
 
         Game game = new Game(manager.getCityCapitals());
         ConsoleUI ui = new ConsoleUI();
-        GameControl control = new GameControl(game, ui, manager);
+        GameManager control = new GameManager(game, ui, manager);
 
         control.play();
     }
