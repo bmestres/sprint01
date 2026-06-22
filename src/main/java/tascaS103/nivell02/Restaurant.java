@@ -6,6 +6,12 @@ public class Restaurant implements Comparable<Restaurant> {
     private String name;
     private int score;
 
+    public Restaurant(String name, int score){
+        this.name = name;
+        this.score = score;
+
+    }
+
     @Override
     public boolean equals(Object object) {
         if (object == this) {
@@ -20,13 +26,13 @@ public class Restaurant implements Comparable<Restaurant> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, score);
+        return Objects.hash(name.toLowerCase(), score);
     }
 
     @Override
     public int compareTo(Restaurant other) {
         if (other == null) {
-            throw new NullPointerException(Messages.E_NULL_COMPARE);
+            throw new NullPointerException(Message.E_NULL_COMPARE);
         }
         int compare = this.name.compareToIgnoreCase(other.name);
 
@@ -34,6 +40,11 @@ public class Restaurant implements Comparable<Restaurant> {
             return Integer.compare(other.score, this.score);
         }
         return compare;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Restaurant %s - Score: %d", this.name, this.score);
     }
 }
 

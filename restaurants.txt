@@ -1,0 +1,11 @@
+Portoles;6
+Granja_Mabel;5
+Pueblo_libre;7
+Bullanga;5
+Casa_Pages;6
+Coure;8
+La_Forquilla;6
+Lento;5
+Atipical;7
+Santa_Magdalena;4
+Artesana;8

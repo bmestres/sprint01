@@ -34,7 +34,7 @@ public class FileManager {
             String textLine;
 
             while((textLine = reader.readLine()) != null){
-                this.fileText += textLine +";";
+                this.fileText += textLine + ";";
             }
             } catch(FileNotFoundException e){
             System.out.print(Message.E_FILE_NOT_FOUND);
