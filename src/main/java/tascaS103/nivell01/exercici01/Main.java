@@ -1,18 +1,18 @@
 package tascaS103.nivell01.exercici01;
 
 import java.util.HashSet;
-
+/*
+   Creates an initial ArrayList adding all months except august and shows them on screen.
+   Then adds august at its correct position and shows new result.
+    */
 public class Main {
-    /*
-    Creates an initial ArrayList adding all months except august and shows them on screen.
-    Then adds august at its correct position and shows new result.
-     */
+
     public static void main(String[] args) {
 
         MonthManager manager = new MonthManager();
 
         manager.fillWithMonthsNoAug();
-        // Print list to verify order is correct
+
         manager.printList(Message.U_FIRST_LIST);
 
         Month august = new Month("August");
